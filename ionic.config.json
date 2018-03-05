@@ -1,0 +1,8 @@
+{
+  "name": "iPhotoAlbum",
+  "app_id": "004a6715",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
