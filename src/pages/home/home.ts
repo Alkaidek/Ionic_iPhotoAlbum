@@ -34,7 +34,7 @@ export class HomePage {
       let optionsToast = {
         message: "Your photo is taken!",
         duration: 3000,
-        cssClass: "toast.scss"
+        cssClass: "home.scss"
        };
       
       this._tc.create(optionsToast).present();
