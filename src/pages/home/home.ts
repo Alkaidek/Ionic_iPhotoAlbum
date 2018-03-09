@@ -10,6 +10,7 @@ import { ToastController } from "ionic-angular";
   templateUrl: 'home.html'
 })
 export class HomePage {
+  bigImg = 'https://vignette.wikia.nocookie.net/nikita2010/images/d/d2/Blank.png/revision/latest/scale-to-width-down/640?cb=20130725195235'; 
 
   constructor(private camera: Camera, public navCtrl: NavController, private _tc: ToastController) {
     initializeApp(FIREBASE_CONFIG);
@@ -32,6 +33,10 @@ export class HomePage {
       const pictures = storage().ref('gallery/myPhoto' + (Math.floor(Math.random() * 6) + 1));
 
       pictures.putString(image, 'data_url');
+      
+      let base64data = 'data:image/jpeg;base64,' + result;
+      this.bigImg = base64data;
+      
       let optionsToast = {
         message: "Your photo is taken!",
         duration: 4000,
@@ -58,6 +63,9 @@ export class HomePage {
       }
       const result =  await this.camera.getPicture(options);
       const image = `data:image/jpeg;base64,${result}`;
+
+      let base64data = 'data:image/jpeg;base64,' + result;
+      this.bigImg = base64data;
 
       const pictures = storage().ref('camera/myPhoto' + (Math.floor(Math.random() * 6) + 1));
 
