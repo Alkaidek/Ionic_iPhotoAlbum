@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 
 import { User } from "../../models/user";
 import { AngularFireAuth } from 'angularfire2/auth';
+
 
 
 
@@ -15,10 +16,22 @@ import { AngularFireAuth } from 'angularfire2/auth';
 export class LoginPage {
 
   user = {} as User;
+  @ViewChild(Slides) slides: Slides;
   
   constructor(private auth: AngularFireAuth,
     public navCtrl: NavController, public navParams: NavParams) {
   }
+  slider = [
+    {
+      image:"../../assets/imgs/1.png"
+    },
+    {
+      image:"../../assets/imgs/2.png"
+    },
+    {
+      image:"../../assets/imgs/3.png"
+    }
+  ];
   async login(user){
     try {
      const result =  this.auth.auth.signInAndRetrieveDataWithEmailAndPassword(user.email, user.password);
@@ -35,9 +48,17 @@ export class LoginPage {
   register(){
     this.navCtrl.push('RegisterPage');
   }
+  slideChanged() {
+    let currentIndex = this.slides.getActiveIndex();
+    if(currentIndex==3){
+      this.slides.stopAutoplay();
+    }
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+    
+    
   }
 
 }

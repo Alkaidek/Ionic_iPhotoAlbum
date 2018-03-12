@@ -22,9 +22,19 @@ export class RegisterPage {
     try{
       if (user.password == this.pswConfirm){
         const result = await this.auth.auth.createUserWithEmailAndPassword(user.email, user.password);    
-        console.log(result);
+        
         let optionsToast = {
           message: "You are register!",
+          duration: 4000,
+          showCloseButton: true,
+          cssClass: "home.scss"
+         };
+         this._tc.create(optionsToast).present();
+         console.log(result);
+         this.navCtrl.pop();
+      }else{
+        let optionsToast = {
+          message: "Psw is not the same!",
           duration: 4000,
           showCloseButton: true,
           cssClass: "home.scss"
@@ -34,11 +44,19 @@ export class RegisterPage {
     }
     catch(e){
       console.error(e);
+      let optionsToast = {
+        message: "Reg fail!",
+        duration: 4000,
+        showCloseButton: true,
+        cssClass: "home.scss"
+       };
+       this._tc.create(optionsToast).present();
     }
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
+  
 
 }

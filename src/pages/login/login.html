@@ -1,9 +1,4 @@
-<!--
-  Generated template for the LoginPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar color="primary">
@@ -13,7 +8,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content  padding>
   <ion-item>
     <ion-label floating>Email</ion-label>
     <ion-input type="text" [(ngModel)]="user.email"></ion-input>
@@ -22,7 +17,15 @@
       <ion-label floating>Password</ion-label>
       <ion-input type="password" [(ngModel)]="user.password"></ion-input>
    </ion-item>
-   <button ion-button (click)="login(user)">Login</button>
-   <button ion-button color="danger" (click)="register()">Register</button>
+   <button ion-button (click)="login(user)" full>Login</button>
+   <p (click)="register()" style="text-align:center">Or click here and <i ion-text color="danger">Register</i> now!</p>
+  
+   <ion-slides pager="true" autoplay="3000" loop="true" speed="1000" pager="true" (ionSlideDidChange)="slideChanged()">
+    <ion-slide *ngFor="let slide of slider" (ionSlideDidChange)="slidechanged()">
+      
+      <img [src]="slide.image" />
+
+    </ion-slide>
+  </ion-slides>
 
 </ion-content>
