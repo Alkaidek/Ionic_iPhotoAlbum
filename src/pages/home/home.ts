@@ -1,19 +1,22 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { storage, initializeApp } from 'firebase';
-import { FIREBASE_CONFIG } from "../../app/firebase.config";
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { storage } from 'firebase';
+
 import { Camera, CameraOptions } from "@ionic-native/camera";
 import { ToastController } from "ionic-angular";
 
+
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
   bigImg = 'https://vignette.wikia.nocookie.net/nikita2010/images/d/d2/Blank.png/revision/latest/scale-to-width-down/640?cb=20130725195235'; 
 
-  constructor(private camera: Camera, public navCtrl: NavController, private _tc: ToastController) {
-    initializeApp(FIREBASE_CONFIG);
+  constructor(private camera: Camera,public navCtrl: NavController, public navParams: NavParams, private _tc: ToastController) {
+    
   }
   async takePhotoViaGallery(){
     try{
@@ -82,6 +85,9 @@ export class HomePage {
     catch (e){
       console.error(e);
     }
+  }
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad LoginPage');
   }
 
 }
