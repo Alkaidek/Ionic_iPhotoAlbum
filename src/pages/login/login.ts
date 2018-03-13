@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, ToastController } from 'ionic-angular';
 
 import { User } from "../../models/user";
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -18,7 +18,7 @@ export class LoginPage {
   user = {} as User;
   @ViewChild(Slides) slides: Slides;
   
-  constructor(private auth: AngularFireAuth,
+  constructor(private auth: AngularFireAuth, private toast: ToastController,
     public navCtrl: NavController, public navParams: NavParams) {
   }
   slider = [
@@ -36,12 +36,14 @@ export class LoginPage {
     try {
      const result =  this.auth.auth.signInAndRetrieveDataWithEmailAndPassword(user.email, user.password);
       console.log(result);
-      
-        this.navCtrl.push("HomePage");
+        this.navCtrl.push("LoginOkPage");
       
     }
     catch(e){
-      console.error(e);
+      this.toast.create({
+        message: `Could not find authenticathion`,
+        duration: 3000
+      }).present();
     }
     
   }
