@@ -34,10 +34,9 @@ export class LoginPage {
   ];
   async login(user){
     try {
-     const result =  this.auth.auth.signInAndRetrieveDataWithEmailAndPassword(user.email, user.password);
+      const result =  this.auth.auth.signInAndRetrieveDataWithEmailAndPassword(user.email, user.password);
       console.log(result);
-        this.navCtrl.push("LoginOkPage");
-      
+      this.navCtrl.push("LoginOkPage");    
     }
     catch(e){
       this.toast.create({
