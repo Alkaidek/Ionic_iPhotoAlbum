@@ -23,20 +23,39 @@ export class HomePage {
   addr;
   name;
   email;
+  albumName;
   currentPhotoAddress;
   assetCollection; 
   public myPhotosRef: any;
   public isenabled:boolean;
   arrData = []; 
+  userPhoto =[];
   myInput;
+  today = new Date();
+  day = this.today.getDate();
+  month = this.today.getMonth()+1; 
+  year = this.today.getFullYear();
+  hours = this.today.getHours();
+  min = this.today.getMinutes();
+  sec = this.today.getSeconds();
+
 
 
 
   constructor(private ofAuth:AngularFireAuth, private fdb: AngularFireDatabase,
     private camera: Camera,public navCtrl: NavController, public navParams: NavParams, private _tc: ToastController) {
-    this.fdb.list(`/photo/${this.email}`).valueChanges().subscribe(_data =>{
+    this.fdb.list(`/photo/`).valueChanges().subscribe(_data =>{
+      
       this.arrData = _data;
       console.log(this.arrData);
+      var n = 0;
+      for(var i=0; this.arrData.length; i++){
+        if(this.arrData[i].user == this.addr){
+          this.userPhoto[n] = this.arrData[i];
+          n = n+1;
+        }
+      }
+      
     })
   }
   async getImage(){
@@ -60,7 +79,10 @@ export class HomePage {
         message: `Hello, ${this.bigImg}`,
         duration: 3000
       }).present();
-      this.fdb.list(`/photo/${this.email}`).push(this.bigImg);
+      var date = this.year +"."+ this.month +"."+ this.day;
+      var control = this.year + this.month + this.day + this.hours + this.min+this.sec;
+      this.fdb.list("photo").push({"index":this.arrData.length+1,"photo":this.bigImg,"user": this.addr,"date":date,"controlData": control, "album": this.albumName});
+      
     }, 10000);
    
    // newshit = 'https://firebasestorage.googleapis.com/v0/b/ialbum-5113a.appspot.com/o/dropsik03%40gmail.com%2FStarwars2?alt=media&token=3e68fef4-727e-460a-82ad-8b8251a803b6';
