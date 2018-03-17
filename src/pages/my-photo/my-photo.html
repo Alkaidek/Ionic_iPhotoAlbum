@@ -1,0 +1,21 @@
+
+<ion-header>
+
+    <ion-navbar color="primary">
+      <ion-title>My Photo</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+      <ion-list>
+          <ion-item *ngFor="let item of userPhoto">
+            <h2>User: {{item.user}}</h2>
+            <p>Date: {{item.date}}</p>
+            <p>Album: {{item.album}}</p>
+            <img src="{{item.photo}}" class="placeholder" >
+          </ion-item>
+        </ion-list>
+  </ion-content>
+  
