@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 
+
 @IonicPage()
 @Component({
   selector: 'page-all-photo',
@@ -20,6 +21,11 @@ export class AllPhotoPage {
       this.arrData = _data;    
       this.arrData.reverse();
     })
+  }
+  openPhotoPage(arg1){
+    this.navCtrl.push('PhotoDetailsPage', {
+      param1: this.arrData[arg1]
+  });
   }
   ionViewDidLoad() {
   

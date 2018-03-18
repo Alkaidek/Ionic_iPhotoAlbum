@@ -15,6 +15,7 @@ import { LoginPage } from '../pages/login/login';
 import { FIREBASE_CONFIG } from './firebase.config';
 
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -31,6 +32,7 @@ import { FIREBASE_CONFIG } from './firebase.config';
   entryComponents: [
     MyApp,
     LoginPage
+
   ],
   providers: [
     StatusBar,
