@@ -11,6 +11,7 @@
 <ion-content padding>
     <ion-list>
         <ion-item *ngFor="let item of arrData">
+          <h1>{{item.index}}Subject: {{item.name}}</h1>
           <h2>User: {{item.user}}</h2>
           <p>Date: {{item.date}}</p>
           <p>Album: {{item.album}}</p>

@@ -81,7 +81,7 @@ export class HomePage {
       }).present();
       var date = this.year +"."+ this.month +"."+ this.day;
       var control = this.year +""+ this.month +""+ this.day +""+ this.hours +""+ this.min+this.sec;
-      this.fdb.list("photo").push({"index":this.arrData.length+1,"photo":this.bigImg,"user": this.addr,"date":date,"controlData": control, "album": this.albumName});
+      this.fdb.list("photo").push({"index":(this.arrData.length+1),"name": this.name,"photo":this.bigImg,"user": this.addr,"date":date,"controlData": control, "album": this.albumName});
       
     }, 10000);
    
