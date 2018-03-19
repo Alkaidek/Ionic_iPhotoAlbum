@@ -14,6 +14,8 @@ import { LoginPage } from '../pages/login/login';
 //import { RegisterPage } from '../pages/register/register'
 import { FIREBASE_CONFIG } from './firebase.config';
 
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 
 
 @NgModule({
@@ -38,6 +40,7 @@ import { FIREBASE_CONFIG } from './firebase.config';
     StatusBar,
     SplashScreen,
     Camera,
+    InAppBrowser,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

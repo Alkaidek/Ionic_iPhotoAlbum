@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, Slides, ToastController } from 'io
 
 import { User } from "../../models/user";
 import { AngularFireAuth } from 'angularfire2/auth';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
 
@@ -18,7 +19,7 @@ export class LoginPage {
   user = {} as User;
   @ViewChild(Slides) slides: Slides;
   
-  constructor(private auth: AngularFireAuth, private toast: ToastController,
+  constructor(private auth: AngularFireAuth, private toast: ToastController, private iab: InAppBrowser,
     public navCtrl: NavController, public navParams: NavParams) {
   }
   slider = [
@@ -54,6 +55,22 @@ export class LoginPage {
     if(currentIndex==3){
       this.slides.stopAutoplay();
     }
+  }
+  googleOpen(){
+    let browser1 = this.iab.create('https://google.com/');
+    browser1.show();
+  }
+  facebookOpen(){
+    let browser2 = this.iab.create('https://fb.com/');
+    browser2.show();
+  }
+  twitterOpen(){
+    let browser3 = this.iab.create('https://twitter.com/');
+    browser3.show();
+  }
+  youtubeOpen(){
+    let browser4 = this.iab.create('https://youtube.com/');
+    browser4.show();
   }
 
   ionViewDidLoad() {

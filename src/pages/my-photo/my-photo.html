@@ -10,8 +10,8 @@
   
   <ion-content padding>
       <ion-list>
-          <ion-item *ngFor="let item of userPhoto">
-            <h1>{{item.name}}</h1>
+          <ion-item text-wrap *ngFor="let item of userPhoto">
+            <h1 >{{item.name}}</h1>
             <h2>User: {{item.user}}</h2>
             <p>Date: {{item.date}}</p>
             <p>Album: {{item.album}}</p>
