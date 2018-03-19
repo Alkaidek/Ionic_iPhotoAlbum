@@ -23,8 +23,10 @@ export class AllPhotoPage {
     })
   }
   openPhotoPage(arg1){
+    let lenghtOfArray = this.arrData.length - arg1;
     this.navCtrl.push('PhotoDetailsPage', {
-      param1: this.arrData[arg1]
+      param1: this.arrData[arg1],
+      param2: lenghtOfArray,
   });
   }
   ionViewDidLoad() {

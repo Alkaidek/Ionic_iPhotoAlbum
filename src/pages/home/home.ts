@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { storage } from 'firebase';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -42,7 +42,7 @@ export class HomePage {
 
 
 
-  constructor(private ofAuth:AngularFireAuth, private fdb: AngularFireDatabase,
+  constructor(private ofAuth:AngularFireAuth, private fdb: AngularFireDatabase, public loadingCtrl: LoadingController,
     private camera: Camera,public navCtrl: NavController, public navParams: NavParams, private _tc: ToastController) {
     this.fdb.list(`/photo/`).valueChanges().subscribe(_data =>{
       
@@ -59,6 +59,17 @@ export class HomePage {
     })
   }
   async getImage(){
+   
+
+    this.fdb.list(`/photo/`).valueChanges().subscribe(_data =>{
+      this.arrData = _data;
+    });
+    let loader = this.loadingCtrl.create({
+      spinner: "bubbles",
+      content: "Please wait!",
+      duration: 10000
+    });
+    loader.present();
     var storageRef = storage().ref(`${this.addr}/${this.name}`);
     var downloadedURL;
     storageRef.getDownloadURL().then(function(url) {
@@ -81,8 +92,9 @@ export class HomePage {
       }).present();
       var date = this.year +"."+ this.month +"."+ this.day;
       var control = this.year +""+ this.month +""+ this.day +""+ this.hours +""+ this.min+this.sec;
-      this.fdb.list("photo").push({"index":(this.arrData.length+1),"name": this.name,"photo":this.bigImg,"user": this.addr,"date":date,"controlData": control, "album": this.albumName});
-      
+      //this.fdb.list("photo").push({"index":(this.arrData.length+1),"name": this.name,"photo":this.bigImg,"user": this.addr,"date":date,"controlData": control, "album": this.albumName});
+      const cachCard = this.fdb.object(`/photo/${this.arrData.length+1}`)
+      cachCard.set({"index":(this.arrData.length+1),"name": this.name,"photo":this.bigImg,"user": this.addr,"date":date,"controlData": control, "album": this.albumName});
     }, 10000);
    
    // newshit = 'https://firebasestorage.googleapis.com/v0/b/ialbum-5113a.appspot.com/o/dropsik03%40gmail.com%2FStarwars2?alt=media&token=3e68fef4-727e-460a-82ad-8b8251a803b6';
