@@ -57,20 +57,20 @@ export class LoginPage {
     }
   }
   googleOpen(){
-    let browser1 = this.iab.create('https://google.com/');
-    browser1.show();
+    const browser = this.iab.create('https://google.com/');
+    browser.show();
   }
   facebookOpen(){
-    let browser2 = this.iab.create('https://fb.com/');
-    browser2.show();
+    const browser = this.iab.create('https://fb.com/');
+    browser.show();
   }
   twitterOpen(){
-    let browser3 = this.iab.create('https://twitter.com/');
-    browser3.show();
+    const browser = this.iab.create('https://twitter.com/');
+    browser.show();
   }
   youtubeOpen(){
-    let browser4 = this.iab.create('https://youtube.com/');
-    browser4.show();
+    const browser = this.iab.create('https://youtube.com/');
+    browser.show();
   }
 
   ionViewDidLoad() {
