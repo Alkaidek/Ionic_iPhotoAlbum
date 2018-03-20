@@ -15,7 +15,19 @@
         <p>Date: {{item.date}}</p>
         <p>Album: {{item.album}}</p>
         <img src="{{item.photo}}" class="placeholder">
+       
       </ion-item>
+      <div [class]="show">
+      <img src="../../assets/imgs/rate.png" [class]="curRate1" (click)="rate(1)"/>
+      <img src="../../assets/imgs/rate.png" [class]="curRate2" (click)="rate(2)"/>
+      <img src="../../assets/imgs/rate.png" [class]="curRate3" (click)="rate(3)"/>
+      <img src="../../assets/imgs/rate.png" [class]="curRate4" (click)="rate(4)"/>
+      <img src="../../assets/imgs/rate.png" [class]="curRate5" (click)="rate(5)"/>
+      <button ion-button icon-only color="danger" visible="false" (click)="addRate()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </div>
+    <img [src]="ratePath" [class]="rateImg"/>
       <ion-item >
         <ion-label  floating>Your Comment</ion-label>
         <ion-input type="text" [(ngModel)]="currentComment"></ion-input>
@@ -28,6 +40,7 @@
           <h1 text-wrap>{{item.content}}</h1>
           <h2>User: {{item.user}}</h2>
           <p>Date: {{item.data}}</p>
+         
         </ion-item>
       </ion-list>
 
