@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, Slides, ToastController } from 'io
 
 import { User } from "../../models/user";
 import { AngularFireAuth } from 'angularfire2/auth';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 
 
@@ -57,19 +57,31 @@ export class LoginPage {
     }
   }
   googleOpen(){
-    const browser = this.iab.create('https://google.com/');
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+    const browser = this.iab.create('https://google.com/','_self', options);
     browser.show();
   }
   facebookOpen(){
-    const browser = this.iab.create('https://fb.com/');
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+    const browser = this.iab.create('https://fb.com/','_self', options);
     browser.show();
   }
   twitterOpen(){
-    const browser = this.iab.create('https://twitter.com/');
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+    const browser = this.iab.create('https://twitter.com/','_self', options);
     browser.show();
   }
   youtubeOpen(){
-    const browser = this.iab.create('https://youtube.com/');
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+    const browser = this.iab.create('https://youtube.com/','_self', options);
     browser.show();
   }
 

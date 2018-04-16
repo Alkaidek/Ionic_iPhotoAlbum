@@ -10,13 +10,14 @@
 
 <ion-content padding>
     <ion-list>
-        
-          <ion-item *ngFor="let item of arrData;let i=index">
+      
+         <ion-item class="image-container" *ngFor="let item of arrData;let i=index">
           <h1 text-wrap>{{item.name}}</h1>
           <h2>User: {{item.user}}</h2>
           <p>Date: {{item.date}}</p>
           <p>Album: {{item.album}}</p>
           <img src="{{item.photo}}" class="placeholder"  (click)="openPhotoPage(i)">
         </ion-item>
+      
       </ion-list>
 </ion-content>
