@@ -22,7 +22,7 @@
   
    <ion-slides pager="true" autoplay="3000" loop="true" speed="1000" pager="true" (ionSlideDidChange)="slideChanged()" effect="cube">
     <ion-slide *ngFor="let slide of slider" (ionSlideDidChange)="slidechanged()">
-      <img [src]="slide.image" />
+      <img [src]="slide.image" imageViewer/>
     </ion-slide>
   </ion-slides>
 

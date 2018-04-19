@@ -31,6 +31,14 @@ export class MyPhotoPage {
 
       })
     }
+    openPhotoPage(arg1){
+      console.log("index: "+ this.userPhoto[arg1].index);
+      
+      this.navCtrl.push('MyPhotoDetailsPage', {
+        param1: this.userPhoto[arg1],
+        param2: this.userPhoto[arg1].index,
+    });
+    }
   ionViewDidLoad() { 
     this.ofAuth.authState.subscribe(data => {
       if(data.email && data.uid){

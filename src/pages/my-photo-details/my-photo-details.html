@@ -1,0 +1,44 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Photo Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item *ngFor="let item of parameter1">
+        <h1 text-wrap>{{item.name}}</h1>
+        <p>Date: {{item.date}}</p>
+        <p>Album: {{item.album}}</p>
+        <img src="{{item.photo}}" class="placeholder" imageViewer/>
+       
+      </ion-item>
+      <div [class]="show">
+        <img src="https://firebasestorage.googleapis.com/v0/b/ialbum-5113a.appspot.com/o/iAlbum%20storage%2Fheart.png?alt=media&token=6bdc426f-953d-4b8b-ada3-4456c0134965" [class]="curRate1"/>
+        <img src="https://firebasestorage.googleapis.com/v0/b/ialbum-5113a.appspot.com/o/iAlbum%20storage%2Fheart.png?alt=media&token=6bdc426f-953d-4b8b-ada3-4456c0134965" [class]="curRate2" />
+        <img src="https://firebasestorage.googleapis.com/v0/b/ialbum-5113a.appspot.com/o/iAlbum%20storage%2Fheart.png?alt=media&token=6bdc426f-953d-4b8b-ada3-4456c0134965" [class]="curRate3" />
+        <img src="https://firebasestorage.googleapis.com/v0/b/ialbum-5113a.appspot.com/o/iAlbum%20storage%2Fheart.png?alt=media&token=6bdc426f-953d-4b8b-ada3-4456c0134965" [class]="curRate4" />
+        <img src="https://firebasestorage.googleapis.com/v0/b/ialbum-5113a.appspot.com/o/iAlbum%20storage%2Fheart.png?alt=media&token=6bdc426f-953d-4b8b-ada3-4456c0134965" [class]="curRate5"/>
+        
+      </div>
+    <img [src]="ratePath" [class]="rateImg"/>
+      <ion-item >
+        <ion-label  floating>Your Comment</ion-label>
+        <ion-input type="text" [(ngModel)]="currentComment"></ion-input>
+      </ion-item>
+      <button ion-button icon-only color="danger" (click)="addComment()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+      <ion-list>
+        <ion-item text-wrap *ngFor="let item of commentList;let i=index">
+          <h1 text-wrap>{{item.content}}</h1>
+          <h2>User: {{item.user}}</h2>
+          <p>Date: {{item.data}}</p>
+         
+        </ion-item>
+      </ion-list>
+
+</ion-content>

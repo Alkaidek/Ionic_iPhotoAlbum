@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { PhotoDetailsPage } from './photo-details';
+import { MyPhotoDetailsPage } from './my-photo-details';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
-
 
 @NgModule({
   declarations: [
-    PhotoDetailsPage,
+    MyPhotoDetailsPage,
   ],
   imports: [
-    IonicPageModule.forChild(PhotoDetailsPage),
+    IonicPageModule.forChild(MyPhotoDetailsPage),
     IonicImageViewerModule
   ],
 })
-export class PhotoDetailsPageModule {}
+export class MyPhotoDetailsPageModule {}
