@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 /**
  * Generated class for the LoginOkPage page.
@@ -16,7 +17,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class LoginOkPage {
 
-  constructor(private ofAuth: AngularFireAuth, private toast: ToastController,
+  constructor(private ofAuth: AngularFireAuth, private toast: ToastController, private iab: InAppBrowser,
     public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -41,6 +42,34 @@ export class LoginOkPage {
   }
   goTo(place){
     this.navCtrl.push(place);
+  }
+  googleOpen(){
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+    const browser = this.iab.create('https://google.com/','_self', options);
+    browser.show();
+  }
+  facebookOpen(){
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+    const browser = this.iab.create('https://fb.com/','_self', options);
+    browser.show();
+  }
+  twitterOpen(){
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+    const browser = this.iab.create('https://twitter.com/','_self', options);
+    browser.show();
+  }
+  youtubeOpen(){
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+    const browser = this.iab.create('https://youtube.com/','_self', options);
+    browser.show();
   }
 
 

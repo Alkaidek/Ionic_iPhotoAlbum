@@ -11,5 +11,26 @@
        Add Photo</button>
     <button ion-button (click)="goTo('AllPhotoPage')" full>Show all photo</button>
     <button ion-button color="secondary" (click)="goTo('MyPhotoPage')" full>Show my photo</button>
+    <ion-fab right bottom>
+        <button ion-fab color="dark">
+          <ion-icon name="ios-people"></ion-icon>
+        </button>
+        <ion-fab-list side="top">
+          <button ion-fab color="danger" (click)="facebookOpen()">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </button>
+          <button ion-fab color="danger" (click)="twitterOpen()">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </button>
+        </ion-fab-list>
+        <ion-fab-list side="left">
+          <button ion-fab color="danger" (click)="youtubeOpen()">
+            <ion-icon name="logo-youtube"></ion-icon>
+          </button>
+          <button ion-fab color="danger" (click)="googleOpen()">
+            <ion-icon name="logo-googleplus"></ion-icon>
+          </button>
+        </ion-fab-list>
+      </ion-fab>
   </ion-content>
   

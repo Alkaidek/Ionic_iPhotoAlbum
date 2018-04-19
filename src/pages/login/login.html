@@ -20,7 +20,7 @@
    <button ion-button (click)="login(user)" full>Login</button>
    <p (click)="register()" style="text-align:center">Or click here and <i ion-text color="danger">Register</i> now!</p>
   
-   <ion-slides pager="true" autoplay="3000" loop="true" speed="1000" pager="true" (ionSlideDidChange)="slideChanged()">
+   <ion-slides pager="true" autoplay="3000" loop="true" speed="1000" pager="true" (ionSlideDidChange)="slideChanged()" effect="cube">
     <ion-slide *ngFor="let slide of slider" (ionSlideDidChange)="slidechanged()">
       <img [src]="slide.image" />
     </ion-slide>
