@@ -12,10 +12,9 @@
       <ion-list>
         <ion-item class="image-container" *ngFor="let item of userPhoto;let i=index">
           <h1 text-wrap>{{item.name}}</h1>
-          <h2>User: {{item.user}}</h2>
           <p>Date: {{item.date}}</p>
           <p>Album: {{item.album}}</p>
-          <p>Index: {{item.index}}</p>
+          <p style="display:none">Index: {{item.index}}</p>
           <img src="{{item.photo}}" class="placeholder"  (click)="openPhotoPage(i)">
           </ion-item>
         </ion-list>

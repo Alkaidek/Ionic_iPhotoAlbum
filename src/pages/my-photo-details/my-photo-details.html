@@ -35,9 +35,8 @@
       <ion-list>
         <ion-item text-wrap *ngFor="let item of commentList;let i=index">
           <h1 text-wrap>{{item.content}}</h1>
-          <h2>User: {{item.user}}</h2>
           <p>Date: {{item.data}}</p>
-         
+          <p>Album: {{item.album}}</p>
         </ion-item>
       </ion-list>
 
