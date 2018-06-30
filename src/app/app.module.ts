@@ -11,10 +11,10 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 import { MyApp } from './app.component';
 //import { HomePage } from '../pages/home/home';
-import { LoginPage } from '../pages/login/login';
+
 //import { RegisterPage } from '../pages/register/register'
 import { FIREBASE_CONFIG } from './firebase.config';
-
+import { LoginPage } from '../pages/login/login';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
@@ -36,7 +36,6 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
   entryComponents: [
     MyApp,
     LoginPage
-
   ],
   providers: [
     StatusBar,

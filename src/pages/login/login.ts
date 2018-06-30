@@ -24,13 +24,13 @@ export class LoginPage {
   }
   slider = [
     {
-      image:"../../assets/imgs/1.png"
+      image:"https://firebasestorage.googleapis.com/v0/b/ialbum-5113a.appspot.com/o/1.png?alt=media&token=dac197a0-34b2-40c1-8261-a3b7372ffceb"
     },
     {
-      image:"../../assets/imgs/2.png"
+      image:"https://firebasestorage.googleapis.com/v0/b/ialbum-5113a.appspot.com/o/2.png?alt=media&token=0a74fadd-f6cd-40e7-85b2-644237267582"
     },
     {
-      image:"../../assets/imgs/3.png"
+      image:"https://firebasestorage.googleapis.com/v0/b/ialbum-5113a.appspot.com/o/3 rm .png?alt=media&token=0a74fadd-f6cd-40e7-85b2-644237267582"
     }
   ];
   async login(user){
@@ -60,28 +60,28 @@ export class LoginPage {
     const options: InAppBrowserOptions = {
       zoom: 'no'
     }
-    const browser = this.iab.create('https://google.com/','_self', options);
+    const browser = this.iab.create('https://google.com/','_system', options);
     browser.show();
   }
   facebookOpen(){
     const options: InAppBrowserOptions = {
       zoom: 'no'
     }
-    const browser = this.iab.create('https://fb.com/','_self', options);
+    const browser = this.iab.create('https://fb.com/','_system', options);
     browser.show();
   }
   twitterOpen(){
     const options: InAppBrowserOptions = {
       zoom: 'no'
     }
-    const browser = this.iab.create('https://twitter.com/','_self', options);
+    const browser = this.iab.create('https://twitter.com/','_system', options);
     browser.show();
   }
   youtubeOpen(){
     const options: InAppBrowserOptions = {
       zoom: 'no'
     }
-    const browser = this.iab.create('https://youtube.com/','_self', options);
+    const browser = this.iab.create('https://youtube.com/','_system', options);
     browser.show();
   }
 
